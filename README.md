@@ -1,34 +1,27 @@
-# Contact Card
+# React Contact Cards
 
-A simple React-based Contact Card application that allows users to add and display contact information through an interactive and user-friendly interface.
+A React-based Single Page Application (SPA) developed as part of the YHills internship project.
 
-## About the Project
+## Project Overview
 
-The Contact Card project is built using React and allows users to enter basic contact details such as:
+This project demonstrates the use of React components to create and dynamically display contact cards in a single-page application.
 
-- Name
-- Age
-- Gender
-
-After submitting the form, the contact is displayed as a card on the page.
-
-The project also includes validation to ensure that the required information is entered correctly.
+Users can enter contact information, and the application dynamically generates contact cards and displays them on the same page.
 
 ## Features
 
-- Add new contact cards
-- Display the total number of contacts
-- View contact details
-- Gender-based avatar
-- Form validation
-- Responsive design
-- Simple and attractive user interface
-- Hover effects for contact cards
-- Mobile-friendly layout
+- User input form for creating contact details
+- Dynamic creation of contact cards
+- Reusable React components
+- Modular component-based structure
+- Single Page Application (SPA)
+- Props used to pass data between components
+- Separate components for adding and displaying users
+- Responsive user interface
 
 ## Technologies Used
 
-- React.js
+- React
 - JavaScript
 - HTML
 - CSS
@@ -37,20 +30,12 @@ The project also includes validation to ensure that the required information is 
 ## Project Structure
 
 ```text
-Contact-Card/
-│
-├── public/
-│
-├── src/
-│   ├── AddUser.jsx
-│   ├── App.jsx
-│   ├── DisplayUsers.jsx
-│   ├── UserCard.jsx
-│   ├── main.jsx
-│   └── styles.css
-│
-├── index.html
-├── package.json
-├── package-lock.json
-├── vite.config.js
-└── README.md
+src/
+├── AddUser.jsx
+├── App.jsx
+├── DisplayUsers.jsx
+├── UserCard.jsx
+├── main.jsx
+├── App.css
+├── index.css
+└── styles.css
