@@ -9,71 +9,110 @@ body {
   color: #222;
 }
 
-.app {
+#root {
+  width: 100%;
   min-height: 100vh;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+
   padding: 40px 20px;
+
   display: flex;
   flex-direction: column;
+
   align-items: center;
+  justify-content: center;
+
+  text-align: center;
 }
 
 .app h1 {
+  width: 100%;
+
   margin: 0 0 30px;
-  color: #333;
+
   font-size: 36px;
+  color: #333;
+
   text-align: center;
 }
 
 .user-form {
   width: 100%;
   max-width: 500px;
+
   margin: 0 auto 40px;
+
   padding: 25px;
-  background-color: white;
+
+  background: white;
+
   border-radius: 15px;
+
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
   text-align: left;
 }
 
 .user-form div {
+  width: 100%;
   margin-bottom: 18px;
 }
 
 .user-form label {
   display: block;
+
+  width: 100%;
+
   margin-bottom: 7px;
+
   font-weight: bold;
   color: #444;
 }
 
 .user-form input,
 .user-form select {
+  display: block;
+
   width: 100%;
+
   padding: 12px;
+
   border: 1px solid #ccc;
   border-radius: 8px;
+
   font-size: 15px;
-  font-family: Arial, sans-serif;
+
   outline: none;
 }
 
 .user-form input:focus,
 .user-form select:focus {
   border-color: #6c63ff;
+
   box-shadow: 0 0 5px rgba(108, 99, 255, 0.25);
 }
 
 .user-form button {
+  display: block;
+
   width: 100%;
+
   padding: 12px;
+
   border: none;
   border-radius: 8px;
+
   background-color: #6c63ff;
   color: white;
+
   font-size: 16px;
   font-weight: bold;
+
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .user-form button:hover {
@@ -82,43 +121,54 @@ body {
 
 .user-list {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
+
   margin: 0 auto;
+
   display: flex;
+  flex-wrap: wrap;
+
   justify-content: center;
   align-items: flex-start;
-  flex-wrap: wrap;
+
   gap: 20px;
 }
 
 .user-card {
   width: 280px;
+
   padding: 25px;
+
   background-color: white;
+
   border-radius: 15px;
-  text-align: left;
+
   border-left: 5px solid #6c63ff;
+
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+
+  text-align: left;
 }
 
 .user-card:hover {
   transform: translateY(-5px);
+
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .user-card h2 {
   margin-top: 0;
   margin-bottom: 18px;
+
   color: #6c63ff;
-  word-break: break-word;
 }
 
 .user-card p {
   margin: 10px 0;
+
   color: #555;
+
   line-height: 1.5;
-  word-break: break-word;
 }
 
 .user-card strong {
@@ -127,14 +177,20 @@ body {
 
 .no-users {
   width: 100%;
+
+  margin: 20px 0;
+
   text-align: center;
+
   color: #777;
-  font-size: 16px;
 }
 
 @media (max-width: 600px) {
   .app {
     padding: 25px 15px;
+
+    justify-content: center;
+    align-items: center;
   }
 
   .app h1 {
@@ -142,16 +198,17 @@ body {
   }
 
   .user-form {
-    padding: 20px;
-  }
-
-  .user-card {
     width: 100%;
-    max-width: 320px;
+    max-width: 400px;
   }
 
   .user-list {
     flex-direction: column;
     align-items: center;
+  }
+
+  .user-card {
+    width: 100%;
+    max-width: 320px;
   }
 }

@@ -93,7 +93,7 @@ function AddUser({ onAddUser }) {
         </select>
       </div>
 
-      <button type="submit">Add User</button>
+      <button type="submit">Add Contact</button>
     </form>
   );
 }
