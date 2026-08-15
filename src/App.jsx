@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-import AddUser from "./AddUser.jsx";
-import DisplayUsers from "./DisplayUsers.jsx";
+import AddUser from "./components/AddUser";
+import DisplayUsers from "./components/DisplayUsers";
 
 export default function App() {
   const [UserDetails, setUserDetails] = useState([
