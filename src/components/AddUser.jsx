@@ -1,97 +1,101 @@
 import React, { useState } from "react";
 
 function AddUser({ onAddUser }) {
-    const [name, setName] = useState("");
-    const [age, setAge] = useState("");
-    const [gender, setGender] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-        if (!name || !age || !gender) {
-            alert("Please fill in all fields.");
-            return;
-        }
+    if (!name || !email || !age || !gender) {
+      alert("Please fill in all fields.");
+      return;
+    }
 
-        const newUser = {
-            id: Date.now(),
-            name: name,
-            age: age,
-            gender: gender
-        };
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        onAddUser(newUser);
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
 
-        setName("");
-        setAge("");
-        setGender("");
+    const newUser = {
+      id: Date.now(),
+      name: name,
+      email: email,
+      age: age,
+      gender: gender,
     };
 
-    return (
-        <form onSubmit={handleSubmit} className="user-form">
+    onAddUser(newUser);
 
-            <div>
-                <label htmlFor="name">Name</label>
+    setName("");
+    setEmail("");
+    setAge("");
+    setGender("");
+  };
 
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Enter name"
-                    value={name}
-                    onChange={(event) =>
-                        setName(event.target.value)
-                    }
-                />
-            </div>
+  return (
+    <form onSubmit={handleSubmit} className="user-form">
+      <div>
+        <label htmlFor="name">Name</label>
 
-            <div>
-                <label htmlFor="age">Age</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter name"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+        />
+      </div>
 
-                <input
-                    type="number"
-                    id="age"
-                    placeholder="Enter age"
-                    value={age}
-                    onChange={(event) =>
-                        setAge(event.target.value)
-                    }
-                />
-            </div>
+      <div>
+        <label htmlFor="email">Email</label>
 
-            <div>
-                <label htmlFor="gender">Gender</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+      </div>
 
-                <select
-                    id="gender"
-                    value={gender}
-                    onChange={(event) =>
-                        setGender(event.target.value)
-                    }
-                >
-                    <option value="">
-                        Select Gender
-                    </option>
+      <div>
+        <label htmlFor="age">Age</label>
 
-                    <option value="Male">
-                        Male
-                    </option>
+        <input
+          type="number"
+          id="age"
+          placeholder="Enter age"
+          value={age}
+          onChange={(event) => setAge(event.target.value)}
+        />
+      </div>
 
-                    <option value="Female">
-                        Female
-                    </option>
+      <div>
+        <label htmlFor="gender">Gender</label>
 
-                    <option value="Other">
-                        Other
-                    </option>
-                </select>
-            </div>
+        <select
+          id="gender"
+          value={gender}
+          onChange={(event) => setGender(event.target.value)}
+        >
+          <option value="">Select Gender</option>
 
-            <button type="submit">
-                Add User
-            </button>
+          <option value="Male">Male</option>
 
-        </form>
-    );
+          <option value="Female">Female</option>
+
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <button type="submit">Add User</button>
+    </form>
+  );
 }
 
 export default AddUser;

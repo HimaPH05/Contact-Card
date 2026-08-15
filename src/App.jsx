@@ -1,27 +1,31 @@
 import React, { useState } from "react";
 import AddUser from "./components/AddUser";
-import UserList from "./components/UserList";
+import UserList from "./components/Userlist";
 import "./App.css";
 
 function App() {
-    const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(() => {
+    const savedUsers = localStorage.getItem("users");
+    return savedUsers ? JSON.parse(savedUsers) : [];
+  });
 
-    const addUser = (user) => {
-        setUsers((previousUsers) => [
-            ...previousUsers,
-            user
-        ]);
-    };
+  const addUser = (user) => {
+    const updatedUsers = [...users, user];
 
-    return (
-        <div className="app">
-            <h1>Contact Cards</h1>
+    setUsers(updatedUsers);
 
-            <AddUser onAddUser={addUser} />
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+  };
 
-            <UserList users={users} />
-        </div>
-    );
+  return (
+    <div className="app">
+      <h1>Contact Cards</h1>
+
+      <AddUser onAddUser={addUser} />
+
+      <UserList users={users} />
+    </div>
+  );
 }
 
 export default App;
