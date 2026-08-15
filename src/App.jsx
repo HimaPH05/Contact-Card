@@ -1,28 +1,27 @@
 import React, { useState } from "react";
-import "./styles.css";
-
 import AddUser from "./components/AddUser";
-import DisplayUsers from "./components/DisplayUsers";
+import UserList from "./components/UserList";
+import "./App.css";
 
-export default function App() {
-  const [UserDetails, setUserDetails] = useState([
-    {
-      id: 1,
-      username: "Hima P H",
-      age: "20",
-      gender: "female",
-    },
-  ]);
+function App() {
+    const [users, setUsers] = useState([]);
 
-  return (
-    <div className="app">
-      <h1>Contact Card</h1>
+    const addUser = (user) => {
+        setUsers((previousUsers) => [
+            ...previousUsers,
+            user
+        ]);
+    };
 
-      <p className="subtitle">Create and manage your contact cards</p>
+    return (
+        <div className="app">
+            <h1>Contact Cards</h1>
 
-      <AddUser setUserDetails={setUserDetails} />
+            <AddUser onAddUser={addUser} />
 
-      <DisplayUsers userData={UserDetails} />
-    </div>
-  );
+            <UserList users={users} />
+        </div>
+    );
 }
+
+export default App;

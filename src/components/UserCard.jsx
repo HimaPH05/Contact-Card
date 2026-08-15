@@ -1,26 +1,21 @@
 import React from "react";
 
-const UserCard = ({ user }) => {
-  return (
-    <div className="user-card">
-      <div
-        className={
-          user.gender === "male" ? "avatar avatar-male" : "avatar avatar-female"
-        }
-      >
-        <div className="avatar-head"></div>
-        <div className="avatar-body"></div>
-      </div>
+function UserCard({ name, age, gender }) {
+    return (
+        <div className="user-card">
 
-      <div className="user-details">
-        <h3>{user.username}</h3>
+            <h2>{name}</h2>
 
-        <p>Age: {user.age}</p>
+            <p>
+                <strong>Age:</strong> {age}
+            </p>
 
-        <p>Gender: {user.gender}</p>
-      </div>
-    </div>
-  );
-};
+            <p>
+                <strong>Gender:</strong> {gender}
+            </p>
+
+        </div>
+    );
+}
 
 export default UserCard;

@@ -1,104 +1,97 @@
 import React, { useState } from "react";
 
-const AddUser = ({ setUserDetails }) => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
+function AddUser({ onAddUser }) {
+    const [name, setName] = useState("");
+    const [age, setAge] = useState("");
+    const [gender, setGender] = useState("");
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-    if (name.trim().length === 0) {
-      alert("Username cannot be empty.");
-      return;
-    }
+        if (!name || !age || !gender) {
+            alert("Please fill in all fields.");
+            return;
+        }
 
-    if (+age < 1) {
-      alert("Age cannot be 0, negative or empty.");
-      return;
-    }
+        const newUser = {
+            id: Date.now(),
+            name: name,
+            age: age,
+            gender: gender
+        };
 
-    if (!gender) {
-      alert("Please select your gender.");
-      return;
-    }
+        onAddUser(newUser);
 
-    alert("Contact card has been added successfully!");
+        setName("");
+        setAge("");
+        setGender("");
+    };
 
-    setUserDetails((prevUser) => [
-      ...prevUser,
-      {
-        id: Date.now(),
-        username: name,
-        age: age,
-        gender: gender,
-      },
-    ]);
+    return (
+        <form onSubmit={handleSubmit} className="user-form">
 
-    setName("");
-    setAge("");
-    setGender("");
-  };
+            <div>
+                <label htmlFor="name">Name</label>
 
-  return (
-    <div className="add-user-box">
-      <form onSubmit={submitHandler}>
-        <div className="form-group">
-          <label htmlFor="username">Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter name"
+                    value={name}
+                    onChange={(event) =>
+                        setName(event.target.value)
+                    }
+                />
+            </div>
 
-          <input
-            type="text"
-            id="username"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-            placeholder="Enter name"
-          />
-        </div>
+            <div>
+                <label htmlFor="age">Age</label>
 
-        <div className="form-group">
-          <label htmlFor="age">Age</label>
+                <input
+                    type="number"
+                    id="age"
+                    placeholder="Enter age"
+                    value={age}
+                    onChange={(event) =>
+                        setAge(event.target.value)
+                    }
+                />
+            </div>
 
-          <input
-            type="number"
-            id="age"
-            onChange={(e) => setAge(e.target.value)}
-            value={age}
-            placeholder="Enter age"
-          />
-        </div>
+            <div>
+                <label htmlFor="gender">Gender</label>
 
-        <div className="gender-title">Gender</div>
+                <select
+                    id="gender"
+                    value={gender}
+                    onChange={(event) =>
+                        setGender(event.target.value)
+                    }
+                >
+                    <option value="">
+                        Select Gender
+                    </option>
 
-        <div className="form-check">
-          <input
-            type="radio"
-            name="gender"
-            id="male-radio"
-            value="male"
-            checked={gender === "male"}
-            onChange={(e) => setGender(e.target.value)}
-          />
+                    <option value="Male">
+                        Male
+                    </option>
 
-          <label htmlFor="male-radio">Male</label>
-        </div>
+                    <option value="Female">
+                        Female
+                    </option>
 
-        <div className="form-check">
-          <input
-            type="radio"
-            name="gender"
-            id="female-radio"
-            value="female"
-            checked={gender === "female"}
-            onChange={(e) => setGender(e.target.value)}
-          />
+                    <option value="Other">
+                        Other
+                    </option>
+                </select>
+            </div>
 
-          <label htmlFor="female-radio">Female</label>
-        </div>
+            <button type="submit">
+                Add User
+            </button>
 
-        <button type="submit">Add Contact</button>
-      </form>
-    </div>
-  );
-};
+        </form>
+    );
+}
 
 export default AddUser;
