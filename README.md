@@ -1,8 +1,56 @@
-# React + Vite
+# Contact Card
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React-based Contact Card application that allows users to add and display contact information through an interactive and user-friendly interface.
 
-Currently, two official plugins are available:
+## About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The Contact Card project is built using React and allows users to enter basic contact details such as:
+
+- Name
+- Age
+- Gender
+
+After submitting the form, the contact is displayed as a card on the page.
+
+The project also includes validation to ensure that the required information is entered correctly.
+
+## Features
+
+- Add new contact cards
+- Display the total number of contacts
+- View contact details
+- Gender-based avatar
+- Form validation
+- Responsive design
+- Simple and attractive user interface
+- Hover effects for contact cards
+- Mobile-friendly layout
+
+## Technologies Used
+
+- React.js
+- JavaScript
+- HTML
+- CSS
+- Vite
+
+## Project Structure
+
+```text
+Contact-Card/
+│
+├── public/
+│
+├── src/
+│   ├── AddUser.jsx
+│   ├── App.jsx
+│   ├── DisplayUsers.jsx
+│   ├── UserCard.jsx
+│   ├── main.jsx
+│   └── styles.css
+│
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
